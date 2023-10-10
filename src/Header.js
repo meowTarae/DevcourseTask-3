@@ -1,4 +1,4 @@
-export default function Header({ $target, text }) {
+export default function Header({ $target, title }) {
   // new로 생성하지 않을 시 에러
   if (!(this instanceof Header)) {
     throw new Error("'Header' must be called with the new keyword");
@@ -9,7 +9,7 @@ export default function Header({ $target, text }) {
   $target.appendChild($header);
 
   this.render = () => {
-    $header.textContent = text;
+    $header.textContent = title;
   };
 
   this.render();
