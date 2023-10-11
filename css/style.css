@@ -81,10 +81,37 @@ form button {
 .ToDoList {
   width: 75%;
   height: 60%;
-
-  /* scroll */
-  overflow-y: scroll;
+  margin: 4% 0 16% 0;
 }
+
+/* scroll-bar */
+.ToDoList {
+  overflow-y: scroll;
+  scrollbar-face-color: black;
+  scrollbar-width: thin;
+}
+.ToDoList::-webkit-scrollbar {
+  width: 4px;
+}
+.ToDoList::-webkit-scrollbar-track {
+  background-color: #2f3640;
+  border-radius: 100px;
+}
+.ToDoList::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1c0;
+  border-radius: 100px;
+}
+.ToDoList {
+  scrollbar-color: #f1f1f1c0 #2f3640;
+  /* scrollbar-color: inherit; */
+}
+.ToDoList::-webkit-scrollbar-thumb {
+  background-image: #f1f1f1c0;
+  /* linear-gradient(120deg, #d0368a 0%, #708ad4 99%); */
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+}
+
 .ToDoList li {
   display: flex;
   justify-content: space-between;
