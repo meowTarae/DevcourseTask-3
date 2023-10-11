@@ -10,6 +10,7 @@ export default function ToDoCount({ $target, initialState }) {
   if (isObject(initialState)) throw new Error("ToDo data Error");
 
   const $todoCount = document.createElement("div");
+  $todoCount.className = "ToDoCount";
   $target.appendChild($todoCount);
 
   this.state = getItem(LOCALSTORAGE_KEY, initialState);

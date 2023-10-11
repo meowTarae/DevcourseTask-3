@@ -12,6 +12,7 @@ export default function TodoList({
   }
 
   const $todoList = document.createElement("div");
+  $todoList.className = "ToDoList";
   $target.appendChild($todoList);
   const $ul = document.createElement("ul");
   $todoList.appendChild($ul);
@@ -21,17 +22,12 @@ export default function TodoList({
   // state 초기값 설정
   this.state = initialState;
 
-  // #할거:
-  // nextState에 대한 validation
   this.setState = (nextState) => {
     if (isObject(nextState)) throw new Error("ToDo data Error");
     this.state = nextState;
     this.render();
   };
 
-  // #질문:
-  // 아래 render() 구현 함수를 따로 js 파일을 만들어 리팩토링 하는게 좋을까요 ?
-  // 아니면 고대로 여기 나둬도 괜찮을까요 ?
   this.render = () => {
     $ul.innerHTML = "";
 
@@ -39,15 +35,11 @@ export default function TodoList({
       this.state.map(({ text, id, isCompleted }) => {
         const $li = document.createElement("li");
         const $span = document.createElement("span");
-        // #질문:
-        // 버튼 텍스트 값을 아이콘으로 구현하는게 좋을지
-        // 아래 코드처럼 icon 태그로 버튼처럼 활용하는게 좋을지 궁금합니다.
         const $completeBtn = document.createElement("i");
         const $deleteBtn = document.createElement("i");
 
         // $li
         $li.id = id;
-        $li.style.listStyle = "none";
 
         // $completeBtn
         $completeBtn.className = `fas ${
@@ -59,7 +51,9 @@ export default function TodoList({
 
         // $span
         $span.innerText = text;
+        $span.style.color = isCompleted ? "#f1f1f1c0" : "snow";
         $span.style.textDecoration = isCompleted ? "line-through" : "none";
+        // $span.style.textDecorationColor = "red";
 
         // $deleteBtn
         $deleteBtn.className = "fas fa-times";
@@ -67,7 +61,7 @@ export default function TodoList({
           onDelete(id);
         });
 
-        // Add
+        // Append
         $li.appendChild($completeBtn);
         $li.appendChild($span);
         $li.appendChild($deleteBtn);

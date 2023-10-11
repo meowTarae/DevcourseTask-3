@@ -3,11 +3,9 @@ import ToDoCount from "./ToDoCount.js";
 import ToDoForm from "./TodoForm.js";
 import { LOCALSTORAGE_KEY } from "./constant.js";
 import { setItem } from "./storage.js";
-import TodoList from "./toDoList.js";
+import TodoList from "./ToDoList.js";
 
 export default function App({ $target, initialState, title }) {
-  // #질문:
-  // 아래 코드 전역으로 선언해서 할 수 없나..
   // new로 생성하지 않을 시 에러
   if (!(this instanceof App)) {
     throw new Error("App must be called with the new keyword");

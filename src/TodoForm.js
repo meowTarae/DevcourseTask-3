@@ -5,6 +5,7 @@ export default function ToDoForm({ $target, onSubmit }) {
   }
 
   const $form = document.createElement("form");
+  $form.className = "TodoForm";
   $target.appendChild($form);
   let isInit = false;
 
